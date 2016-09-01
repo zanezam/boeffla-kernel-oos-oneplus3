@@ -1237,6 +1237,11 @@ static void gesture_judge(struct synaptics_ts_data *ts)
 	if((gesture == DouTap && DouTap_gesture)||(gesture == RightVee && RightVee_gesture)\
         ||(gesture == LeftVee && LeftVee_gesture)||(gesture == UpVee && UpVee_gesture)\
         ||(gesture == Circle && Circle_gesture)||(gesture == DouSwip && DouSwip_gesture)){
+
+		// check if haptic feedback for gesture should be suppressed
+		if (DisableGestureHaptic)
+			qpnp_hap_ignore_next_request();
+
 		gesture_upload = gesture;
 		input_report_key(ts->input_dev, keyCode, 1);
 		input_sync(ts->input_dev);
