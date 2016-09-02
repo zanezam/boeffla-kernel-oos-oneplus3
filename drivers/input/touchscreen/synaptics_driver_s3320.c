@@ -1603,7 +1603,8 @@ static ssize_t tp_gesture_write_func(struct file *file, const char __user *buffe
 	struct synaptics_ts_data *ts = ts_g;
 	if(!ts)
 		return count;
-	if( count > 2 || ts->is_suspended)
+	// if( count > 2 || ts->is_suspended )	AP: I believe the check if screen is off is a bug in official sources (also not like that in OP2 driver)
+	if( count > 2)
 		return count;
 	if( copy_from_user(buf, buffer, count) ){
 		TPD_ERR(KERN_INFO "%s: read proc input error.\n", __func__);
@@ -1656,7 +1657,7 @@ static ssize_t tp_sweep_wake_write_func(struct file *file, const char __user *bu
 
 	if(!ts)
 		return count;
-	if( count > 2 || ts->is_suspended)
+	if( count > 2)
 		return count;
 	if( copy_from_user(buf, buffer, count) ){
 		TPD_ERR(KERN_INFO "%s: read proc input error.\n", __func__);
