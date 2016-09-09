@@ -66,7 +66,7 @@
 # Apply Boeffla-Kernel default settings
 
 	# Sdcard buffer tweaks default to 1024 kb
-	echo 1024 > /sys/block/sda/queue/read_ahead_kb
+	echo 1024 > /sys/block/dm-0/queue/read_ahead_kb
 	/sbin/busybox sync
 
 	# Ext4 tweaks default to on
@@ -120,8 +120,8 @@
 	cat /proc/sys/vm/swappiness > /dev/bk_orig_swappiness
 	cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor > /dev/bk_orig_scaling_governor
 	cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor > /dev/bk_orig_scaling_governor_2
-	cat /sys/block/sda/queue/scheduler > /dev/bk_orig_mmcblk0_scheduler
-	cat /sys/block/sda/queue/read_ahead_kb > /dev/bk_orig_mmcblk0_read_ahead_kb
+	cat /sys/block/dm-0/queue/scheduler > /dev/bk_orig_mmcblk0_scheduler
+	cat /sys/block/dm-0/queue/read_ahead_kb > /dev/bk_orig_mmcblk0_read_ahead_kb
 	cat /proc/sys/kernel/random/read_wakeup_threshold > /dev/bk_read_wakeup_threshold
 	cat /proc/sys/kernel/random/write_wakeup_threshold > /dev/bk_write_wakeup_threshold
 
