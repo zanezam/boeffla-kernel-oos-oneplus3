@@ -59,6 +59,10 @@
 
 #include <linux/moduleparam.h>
 
+#ifdef CONFIG_BOEFFLA_TOUCH_KEY_CONTROL
+#include <linux/boeffla_touchkey_control.h>
+#endif
+
 enum oem_boot_mode{
 	MSM_BOOT_MODE__NORMAL,
 	MSM_BOOT_MODE__FASTBOOT,
@@ -920,6 +924,9 @@ static void synaptics_ts_report(struct synaptics_ts_data *ts )
         //goto END;
     }
     if( inte & 0x10) {
+#ifdef CONFIG_BOEFFLA_TOUCH_KEY_CONTROL
+		btkc_touch_button();
+#endif
 #if (defined SUPPORT_FOR_COVER_ESD)
         if (ts->cover_reject)
             int_key_cover(ts);
