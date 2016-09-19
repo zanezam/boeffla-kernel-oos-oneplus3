@@ -414,7 +414,7 @@ LINUXINCLUDE    := \
 
 KBUILD_CPPFLAGS := -D__KERNEL__
 
-KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
+KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Wno-misleading-indentation \
 		   -fno-strict-aliasing -fno-common -Wno-incompatible-pointer-types \
 		   -Werror-implicit-function-declaration -Wno-unused-const-variable \
 		   -Wno-format-security -Wno-discarded-array-qualifiers -Wno-memset-transposed-args \
