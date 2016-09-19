@@ -52,6 +52,10 @@
 #include <linux/notifier.h>
 #endif
 
+#ifdef CONFIG_BOEFFLA_TOUCH_KEY_CONTROL
+#include <linux/boeffla_touchkey_control.h>
+#endif
+
 #include <linux/project_info.h>
 
 static unsigned int ignor_home_for_ESD = 0;
@@ -302,6 +306,9 @@ static ssize_t report_home_set(struct device *dev,
 		return -EINVAL;
 	if (!strncmp(buf, "down", strlen("down")))
 	{
+#ifdef CONFIG_BOEFFLA_TOUCH_KEY_CONTROL
+		btkc_touch_button();
+#endif
         if(ignore_keypad){
                 key_home_pressed = true;
         }else{
