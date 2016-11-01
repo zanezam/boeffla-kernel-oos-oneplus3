@@ -327,6 +327,7 @@ dump_boot;
 
 # AnyKernel permissions
 chmod 755 $ramdisk/sbin/busybox
+chmod 755 $ramdisk/sbin/e2fsck
 chmod -R 755 $ramdisk/res/bc
 chmod -R 755 $ramdisk/res/misc
 
