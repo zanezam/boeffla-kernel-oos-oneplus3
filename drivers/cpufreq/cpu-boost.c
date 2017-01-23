@@ -26,9 +26,9 @@
 #ifdef CONFIG_TOUCHBOOST_CONTROL
 #include <linux/export.h>
 unsigned int touchboost_status_1 = 1;
-unsigned int touchboost_freq_1 = 1324800;
+unsigned int touchboost_freq_1 = 1286400;
 unsigned int touchboost_status_2 = 1;
-unsigned int touchboost_freq_2 = 1324800;
+unsigned int touchboost_freq_2 = 1286400;
 unsigned int touchboost_ms = 40;
 #endif
 
