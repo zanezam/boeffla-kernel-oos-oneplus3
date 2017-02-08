@@ -16,7 +16,7 @@
 int mhi_test_for_device_reset(struct mhi_device_ctxt *mhi_dev_ctxt)
 {
 	u32 pcie_word_val = 0;
-	u32 expiry_counter;
+	u32 expiry_counter = 0;
 
 	mhi_log(MHI_MSG_INFO, "Waiting for MMIO RESET bit to be cleared.\n");
 	pcie_word_val = mhi_reg_read(mhi_dev_ctxt->mmio_info.mmio_addr,
