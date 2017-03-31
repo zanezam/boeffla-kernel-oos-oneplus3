@@ -312,7 +312,7 @@ static ssize_t report_home_set(struct device *dev,
 	}
 	else if (!strncmp(buf, "up", strlen("up")))
 	{
-        if(ignore_keypad){
+        if(virtual_key_enable){
                 key_home_pressed = false;
         }else{
             input_report_key(fpc1020->input_dev,
