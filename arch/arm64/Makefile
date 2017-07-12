@@ -22,7 +22,6 @@ GEN_OPT_FLAGS := $(call cc-option,$(ARM_ARCH_OPT),-march=armv8-a,-mpc-relative-l
  -g0 \
  -DNDEBUG \
  -fomit-frame-pointer \
- -fmodulo-sched \
  -fmodulo-sched-allow-regmoves \
  -fivopts
 
