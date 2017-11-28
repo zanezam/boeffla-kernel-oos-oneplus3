@@ -3,7 +3,7 @@
 # *******************************
 # BC-based initialization
 #
-# Oneplus 3 OOS5xx version
+# Oneplus 3T OOS5xx version
 #
 # V0.1
 # *******************************

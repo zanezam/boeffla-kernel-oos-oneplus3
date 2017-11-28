@@ -3,7 +3,7 @@
 # Boeffla-Config controller interface
 #
 # *******************************
-# Oneplus 3 OOS 5.x.x version
+# Oneplus 3T OOS 5.x.x version
 #
 # V0.1
 # *******************************
@@ -13,7 +13,7 @@
 # ********************************
 
 # kernel specification (hardware; type; target; url)
-KERNEL_SPECS="oneplus3;oos;oos5xx;http://kernel.boeffla.de/oneplus3/boeffla-kernel-oos/;boeffla-kernel-#VERSION#-OOS5xx-OnePlus3-anykernel.recovery.zip"
+KERNEL_SPECS="oneplus3t;oos;oos5xx;http://kernel.boeffla.de/oneplus3t/boeffla-kernel-oos/;boeffla-kernel-#VERSION#-OOS5xx-OnePlus3T-anykernel.recovery.zip"
 
 # kernel features 
 # (1=enable-busybox,2=enable-frandom,3=wipe-cache,4=disable-zram-control)
@@ -688,7 +688,7 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/fastlane
 		echo "50" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/fastlane_threshold
 		echo "99" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/go_hispeed_load
-		echo "1593600" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/hispeed_freq
+		echo "2188800" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/hispeed_freq
 		echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/io_is_busy
 		echo "80000" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/min_sample_time
 		echo "90" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/target_loads
@@ -884,7 +884,7 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "0" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/fastlane
 		echo "50" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/fastlane_threshold
 		echo "99" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/go_hispeed_load
-		echo "2150400" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/hispeed_freq
+		echo "2342400" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/hispeed_freq
 		echo "0" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/io_is_busy
 		echo "80000" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/min_sample_time
 		echo "90" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/target_loads
