@@ -10,7 +10,7 @@
 # Parameters to be configured manually
 #######################################
 
-BOEFFLA_VERSION="3.0-test-OOS5xx-OnePlus3-anykernel"
+BOEFFLA_VERSION="3.0-test-OOS5xx-OnePlus3T-anykernel"
 
 TOOLCHAIN="/opt/toolchains/aarch64-linux-android-4.9-20150123/bin/aarch64-linux-android-"
 ARCHITECTURE=arm64
