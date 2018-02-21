@@ -403,7 +403,8 @@ GEN_OPT_FLAGS := $(call cc-option,$(ARM_ARCH_OPT),-march=armv8-a) \
  -Wno-bool-compare \
  -Wno-logical-not-parentheses \
  -Wno-switch-bool \
- -Wno-array-bounds
+ -Wno-array-bounds \
+ -Wno-unused-variable
 
 # flags to fix module loading issues if incompatible general optimizations are used
 MOD_FIX_FLAGS := -fno-tree-loop-vectorize
