@@ -57,30 +57,6 @@ if [ "lov_cpu_hotplug_profiles_2" == "$1" ]; then
 	exit 0
 fi
 
-if [ "lov_cpu_volt_profiles" == "$1" ]; then
-	#echo "No undervolting;undervolt -25mV;undervolt -50mV;undervolt -75mV;undervolt -100mV;undervolt light;undervolt medium;undervolt heavy"
-	exit 0
-fi
-
-if [ "lov_gpu_freq_profiles" == "$1" ]; then
-	#echo "54 only;160 only;160/266;266/350;54/108/160/200/266;108/160/200/266/350;160/266/350/440/533 (default);266/350/440/533/600;350/440/533/600/640;440/533/600/640/700"
-	exit 0
-fi
-
-if [ "lov_gpu_volt_profiles" == "$1" ]; then
-	#echo "No undervolting;undervolt -25mV;undervolt -50mV;undervolt -75mV;undervolt -100mV;undervolt light;undervolt medium;undervolt heavy;overvolt +25mV;overvolt +50mV;overvolt +75mV;overvolt +100mV"
-	exit 0
-fi
-
-if [ "lov_gpu_freq" == "$1" ]; then
-	#echo "54;108;160;200;266;300;350;400;440;500;533;600;640;700"
-	exit 0
-fi
-
-if [ "lov_eq_gain_profiles" == "$1" ]; then
-	#echo "Archis audiophile;Baseland;Bass extreme;Bass treble;Classic;Dance;Eargasm;Metal/Rock;Pleasant;Treble"
-	exit 0
-fi
 
 if [ "lov_system_tweaks" == "$1" ]; then
 	#echo "Thermal - Stock;Thermal - Custom;Thermal - Relaxed;Thermal - Performance;Thermal - Gaming;Thermal - Extreme"
@@ -97,228 +73,7 @@ if [ "lov_sleep_gesture_texts" == "$1" ]; then
 	exit 0
 fi
 
-if [ "***notimplemented*** lov_presets" == "$1" ]; then
-	# Note, the ^ sign will be translated into newline for this setting
-	echo "Power extreme~"
-	echo "Gov: zzmoove / performance"
-	echo "^Sched: row"
-	echo "^CPU: 2880 / no uv"
-	echo "^GPU: 330-657;"
-	
-	echo "Power~"
-	echo "Gov: ondemand / standard"
-	echo "^Sched: row"
-	echo "^CPU: 2726 / no uv"
-	echo "^GPU: 200-657;"
-	
-	echo "Standard~"
-	echo "Gov: interactive / standard"
-	echo "^Sched: row"
-	echo "^CPU: 2457 / no uv"
-	echo "^GPU: 27-578;"
-	
-	echo "Battery friendly~"
-	echo "Gov: interactive / standard"
-	echo "^Sched: zen"
-	echo "^CPU: 1728 / -25mV"
-	echo "^GPU: 27-330;"
-	
-	echo "Battery saving~"
-	echo "Gov: zzmoove / battery yank"
-	echo "^Sched: zen"
-	echo "^CPU: 1497 / light uv"
-	echo "^GPU: 27 only;"
-	
-	exit 0
-fi
 
-
-# ************************************
-# Configuration values (for profiles)
-# ************************************
-
-if [ "conf_presets" == "$1" ]; then
-	if [ "Power extreme" ==  "$2" ]; then
-		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
-		echo "zzmoove;zzmoove - performance;"
-		echo "row;row;"
-		echo "2880000;None;"
-		echo "4,0;None"
-	fi
-	if [ "Power" ==  "$2" ]; then
-		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
-		echo "ondemand;ondemand - standard;"
-		echo "row;row;"
-		echo "2726400;None;"
-		echo "5,0;None"
-	fi
-	if [ "Standard" ==  "$2" ]; then
-		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
-		echo "interactive;standard;"
-		echo "row;row;"
-		echo "2457600;None;"
-		echo "6,1;None"
-	fi
-	if [ "Battery friendly" ==  "$2" ]; then
-		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
-		echo "interactive;standard;"
-		echo "zen;zen;"
-		echo "1728000;undervolt -25mV;"
-		echo "6,4;None"
-	fi
-	if [ "Battery saving" ==  "$2" ]; then
-		# gov, gov prof, sched int, sched ext, cpu max, cpu uv, gpu freq, gpu uv
-		echo "zzmoove;zzmoove - battery yank;"
-		echo "zen;zen;"
-		echo "1497600;undervolt light;"
-		echo "6,6;None"
-	fi
-	exit 0
-fi
-
-
-if [ "conf_gpu_freq" == "$1" ]; then
-	if [ "54 only" == "$2" ]; then
-		echo "54;54;54;54;54"
-	fi
-	if [ "160 only" == "$2" ]; then
-		echo "160;160;160;160;160"
-	fi
-	if [ "160/266" == "$2" ]; then
-		echo "160;160;160;266;266"
-	fi
-	if [ "266/350" == "$2" ]; then
-		echo "266;266;266;350;350"
-	fi
-	if [ "54/108/160/200/266" == "$2" ]; then
-		echo "54;108;160;200;266"
-	fi
-	if [ "108/160/200/266/350" == "$2" ]; then
-		echo "108;160;200;266;350"
-	fi
-	if [ "160/266/350/440/533 (default)" == "$2" ]; then
-		echo "160;266;350;440;533"
-	fi
-	if [ "266/350/440/533/600" == "$2" ]; then
-		echo "266;350;440;533;600"
-	fi
-	if [ "350/440/533/600/640" == "$2" ]; then
-		echo "350;440;533;600;640"
-	fi
-	if [ "440/533/600/640/700" == "$2" ]; then
-		echo "440;533;600;640;700"
-	fi
-	exit 0
-fi
-
-
-if [ "conf_gpu_volt" == "$1" ]; then
-	if [ "No undervolting" == "$2" ]; then
-		echo "0;0;0;0;0"
-	fi
-	if [ "undervolt -25mV" == "$2" ]; then
-		echo "-25000;-25000;-25000;-25000;-25000"
-	fi
-	if [ "undervolt -50mV" == "$2" ]; then
-		echo "-50000;-50000;-50000;-50000;-50000"
-	fi
-	if [ "undervolt -75mV" == "$2" ]; then
-		echo "-75000;-75000;-75000;-75000;-75000"
-	fi
-	if [ "undervolt -100mV" == "$2" ]; then
-		echo "-100000;-100000;-100000;-100000;-100000"
-	fi
-	if [ "undervolt light" == "$2" ]; then
-		echo "-25000;-25000;-25000;-50000;-50000"
-	fi
-	if [ "undervolt medium" == "$2" ]; then
-		echo "-50000;-50000;-50000;-75000;-75000"
-	fi
-	if [ "undervolt heavy" == "$2" ]; then
-		echo "-75000;-75000;-75000;-100000;-100000"
-	fi
-	if [ "overvolt +25mV" == "$2" ]; then
-		echo "25000;25000;25000;25000;25000"
-	fi
-	if [ "overvolt +50mV" == "$2" ]; then
-		echo "50000;50000;50000;50000;50000"
-	fi
-	if [ "overvolt +75mV" == "$2" ]; then
-		echo "75000;75000;75000;75000;75000"
-	fi
-	if [ "overvolt +100mV" == "$2" ]; then
-		echo "100000;100000;100000;100000;100000"
-	fi
-	exit 0
-fi
-
-if [ "conf_cpu_volt" == "$1" ]; then
-	if [ "No undervolting" == "$2" ]; then
-		echo "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0"
-	fi
-	if [ "undervolt -25mV" == "$2" ]; then
-		echo "-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25;-25"
-	fi
-	if [ "undervolt -50mV" == "$2" ]; then
-		echo "-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50;-50"
-	fi
-	if [ "undervolt -75mV" == "$2" ]; then
-		echo "-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75;-75"
-	fi
-	if [ "undervolt -100mV" == "$2" ]; then
-		echo "-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100;-100"
-	fi
-	if [ "undervolt light" == "$2" ]; then
-		echo "-50;-50;-50;-50;-50;-25;-25;-25;-25;-25;-25;-25;0;0;0;0;0;0"
-	fi
-	if [ "undervolt medium" == "$2" ]; then
-		echo "-75;-75;-75;-75;-75;-75;-50;-50;-50;-50;-50;-25;-25;-25;-25;-25;-25;-25"
-	fi
-	if [ "undervolt heavy" == "$2" ]; then
-		echo "-100;-100;-100;-100;-100;-100;-100;-75;-75;-75;-75;-75;-50;-50;-50;-50;-50;-50"
-	fi
-	exit 0
-fi
-
-if [ "conf_eq_gains" == "$1" ]; then
-	if [ "Flat" ==  "$2" ]; then
-		echo "0;0;0;0;0"
-	fi
-	if [ "Archis audiophile" ==  "$2" ]; then
-		echo "8;4;4;2;6"
-	fi
-	if [ "Eargasm" ==  "$2" ]; then
-		echo "12;8;4;2;3"
-	fi
-	if [ "Pleasant" ==  "$2" ]; then
-		echo "4;3;2;2;3"
-	fi
-	if [ "Classic" ==  "$2" ]; then
-		echo "0;0;0;-3;-5"
-	fi
-	if [ "Bass treble" ==  "$2" ]; then
-		echo "10;7;0;2;5"
-	fi
-	if [ "Bass extreme" ==  "$2" ]; then
-		echo "12;8;3;-1;1"
-	fi
-	if [ "Treble" ==  "$2" ]; then
-		echo "-5;1;0;4;3"
-	fi
-	if [ "Baseland" ==  "$2" ]; then
-		echo "8;7;4;3;3"
-	fi
-	if [ "Dance" ==  "$2" ]; then
-		echo "4;0;-6;0;3"
-	fi
-	if [ "Metal/Rock" ==  "$2" ]; then
-		echo "4;3;0;-4;3"
-	fi
-	if [ "Googy" ==  "$2" ]; then
-		echo "10;2;-1;2;10"
-	fi
-	exit 0
-fi
 
 # *******************
 # Parameters
@@ -413,16 +168,6 @@ fi
 # Get settings
 # *******************
 
-#if [ "get_ums" == "$1" ]; then
-#	if [ "`busybox grep 179 /sys/devices/platform/s3c-usbgadget/gadget/lun0/file`" ]; then
-#		echo "1"
-#	else
-#		echo "0"
-#	fi
-#	exit 0
-#fi
-
-
 if [ "get_tunables" == "$1" ]; then
 	if [ -d /sys/devices/system/cpu/cpu0/cpufreq/$2 ]; then
 		cd /sys/devices/system/cpu/cpu0/cpufreq/$2
@@ -447,6 +192,11 @@ fi
 
 if [ "get_kernel_version2" == "$1" ]; then
 	busybox cat /proc/version
+	exit 0
+fi
+
+if [ "get_kernel_version3" == "$1" ]; then
+	cat /proc/version
 	exit 0
 fi
 
@@ -514,7 +264,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "66666" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/sampling_rate_min
 		echo "80" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -527,7 +276,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "10000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate_min
 		echo "95" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -551,7 +299,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -575,7 +322,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -599,7 +345,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -623,7 +368,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -645,7 +389,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/impulse/use_migration_notif
 		echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/impulse/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -658,7 +401,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "10000" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/sampling_rate_min
 		echo "90" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -678,7 +420,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "75" > /sys/devices/system/cpu/cpu0/cpufreq/zzmoove/smooth_up
 		echo "80" > /sys/devices/system/cpu/cpu0/cpufreq/zzmoove/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -695,7 +436,6 @@ if [ "apply_governor_profile" == "$1" ]; then
 		echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/timer_rate
 		echo "80000" > /sys/devices/system/cpu/cpu0/cpufreq/blu_active/timer_slack
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -713,7 +453,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "66666" > /sys/devices/system/cpu/cpu2/cpufreq/conservative/sampling_rate_min
 		echo "80" > /sys/devices/system/cpu/cpu2/cpufreq/conservative/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -726,7 +465,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "10000" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/sampling_rate_min
 		echo "95" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -750,7 +488,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -774,7 +511,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -798,7 +534,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -822,7 +557,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif
 		echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -844,7 +578,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "0" > /sys/devices/system/cpu/cpu2/cpufreq/impulse/use_migration_notif
 		echo "0" > /sys/devices/system/cpu/cpu2/cpufreq/impulse/use_sched_load
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -857,7 +590,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "10000" > /sys/devices/system/cpu/cpu2/cpufreq/elementalx/sampling_rate_min
 		echo "90" > /sys/devices/system/cpu/cpu2/cpufreq/elementalx/up_threshold
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -891,7 +623,6 @@ if [ "apply_governor_profile_2" == "$1" ]; then
 		echo "20000" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/timer_rate
 		echo "80000" > /sys/devices/system/cpu/cpu2/cpufreq/blu_active/timer_slack
 
-		busybox sleep 0.5s
 		busybox sync
 	fi
 
@@ -901,10 +632,6 @@ fi
 
 if [ "apply_system_tweaks" == "$1" ]; then
 
-	exit 0
-fi
-
-if [ "apply_eq_bands" == "$1" ]; then
 	exit 0
 fi
 
@@ -927,41 +654,6 @@ if [ "apply_ext4_tweaks" == "$1" ]; then
 	exit 0
 fi
 
-
-#if [ "apply_zram" == "$1" ]; then
-#	if [ "1" == "$2" ]; then
-#		busybox swapoff /dev/block/zram0
-#		busybox swapoff /dev/block/zram1
-#		busybox swapoff /dev/block/zram2
-#		busybox swapoff /dev/block/zram3
-#		echo "1" > /sys/block/zram0/reset
-#		echo "1" > /sys/block/zram1/reset
-#		echo "1" > /sys/block/zram2/reset
-#		echo "1" > /sys/block/zram3/reset
-#		echo "$4" > /sys/block/zram0/disksize
-#		echo "0" > /sys/block/zram1/disksize
-#		echo "0" > /sys/block/zram2/disksize
-#		echo "0" > /sys/block/zram3/disksize
-#		busybox mkswap /dev/block/zram0
-#		busybox swapon -p 2 /dev/block/zram0
-#		busybox sleep 0.5s
-#		busybox sync
-#	fi
-#
-#	if [ "0" == "$2" ]; then
-#		busybox swapoff /dev/block/zram0
-#		busybox swapoff /dev/block/zram1
-#		busybox swapoff /dev/block/zram2
-#		busybox swapoff /dev/block/zram3
-#		echo "1" > /sys/block/zram0/reset
-#		echo "1" > /sys/block/zram1/reset
-#		echo "1" > /sys/block/zram2/reset
-#		echo "1" > /sys/block/zram3/reset
-#		busybox sleep 0.5s
-#		busybox sync
-#	fi
-#	exit 0
-#fi
 
 if [ "apply_cifs" == "$1" ]; then
 	if [ "1" == "$2" ]; then
@@ -1051,10 +743,6 @@ if [ "apply_ntfs" == "$1" ]; then
 	exit 0
 fi
 
-#if [ "apply_ums" == "$1" ]; then
-#	exit 0
-#fi
-
 
 # *******************
 # Actions
@@ -1104,8 +792,8 @@ if [ "action_debug_info_file" == "$1" ]; then
 	echo -e "\n============================================\n" >> $2
 
 	#echo -e "\n**** boeffla_sound\n" >> $2
-	#cd /sys/class/misc/boeffla_sound
-	#busybox find * -print -maxdepth 0 -type f -exec busybox tail -v -n +1 {} + >> $2
+	cd /sys/class/misc/boeffla_sound
+	busybox find * -print -maxdepth 0 -type f -exec busybox tail -v -n +1 {} + >> $2
 
 	echo "\n============================================\n" >> $2
 
@@ -1153,10 +841,6 @@ if [ "action_debug_info_file" == "$1" ]; then
 	echo -e "\n**** Touch boost:\n" >> $2
 	cd /sys/class/misc/touchboost_switch
 	busybox find * -print -maxdepth 0 -type f -exec busybox tail -v -n +1 {} + >> $2
-
-	#echo -e "\n**** Charging levels (ac/usb/wireless) and Charging instable power / ignore safety margin:\n" >> $2
-	#cd /sys/kernel/charge_levels
-	#busybox find * -print -maxdepth 0 -type f -exec busybox tail -v -n +1 {} + >> $2
 
 	echo -e "\n**** Scheduler:\n" >> $2
 	cat /sys/block/sda/queue/scheduler >> $2
@@ -1271,17 +955,6 @@ if [ "flash_recovery" == "$1" ]; then
 fi
 
 if [ "extract_recovery" == "$1" ]; then
-	busybox tar -xvf $2 -C $3
-	exit 0
-fi
-
-if [ "flash_modem" == "$1" ]; then
-	setenforce 0
-	busybox dd if=$2 of=$RADIO_DEVICE
-	exit 0
-fi
-
-if [ "extract_modem" == "$1" ]; then
 	busybox tar -xvf $2 -C $3
 	exit 0
 fi
