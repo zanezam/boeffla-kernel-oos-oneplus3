@@ -394,7 +394,7 @@ stepB_backup()
 	BACKUP_FILE="$ROOT_DIR_NAME""_$(date +"%Y-%m-%d_%H-%M").tar.gz"
 
 	cd $ROOT_PATH
-	tar --use-compress-program=pigz -cvf $BACKUP_FILE source x-settings.sh
+	tar cvfz $BACKUP_FILE source x-settings.sh
 	cd $SOURCE_PATH
 
 	# transfer backup only if smbshare configured
