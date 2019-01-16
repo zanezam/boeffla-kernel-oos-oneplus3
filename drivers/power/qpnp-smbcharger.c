@@ -84,6 +84,7 @@ static int fake_authentic = 0;
 static bool use_fake_temp = false;
 static bool use_fake_chgvol = false;
 static bool use_fake_authentic = false;
+int bc_enable_usb_fastcharge = 1;
 
 enum chg_battery_status_type {
 	BATT_STATUS_GOOD,
@@ -2103,7 +2104,8 @@ static int smbchg_set_usb_current_max(struct smbchg_chip *chip,
 			}
 			chip->usb_max_current_ma = 500;
 		}
-		if ((current_ma == CURRENT_500_MA) || (current_ma == CURRENT_900_MA)) {	// AP: Fast charge for USB
+		if (((current_ma == CURRENT_500_MA) && (bc_enable_usb_fastcharge == 1))	// AP: Fast charge for USB, only if enabled
+			|| (current_ma == CURRENT_900_MA)) {
 			rc = smbchg_sec_masked_write(chip,
 					chip->usb_chgpth_base + CHGPTH_CFG,
 					CFG_USB_2_3_SEL_BIT, CFG_USB_3);
