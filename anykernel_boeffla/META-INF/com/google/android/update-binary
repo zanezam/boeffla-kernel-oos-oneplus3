@@ -156,13 +156,14 @@ if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.modules)" == 1 ]; then
 fi;
 
 if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.system)" == 1 ]; then
-	ui_print "* Copying firmware files...";
+	ui_print "* Installing Firmwares for USB Wifi Adapters...";
 	ui_print " ";
 
-	mount -o remount,rw /system;
-	cp -rf /tmp/anykernel/system/etc/firmware/* /system/etc/firmware/;
-	set_perm_recursive 0 0 0755 0644 /system/etc/firmware;
-	mount -o remount,ro /system;
+	mkdir /fwtmp;
+	mount -o rw /dev/block/bootdevice/by-name/modem /fwtmp -t vfat;
+	cp -rf /tmp/anykernel/system/etc/firmware/* /fwtmp/image;
+	umount /fwtmp;
+	rmdir /fwtmp;
 fi;
 
 if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.cleanup)" == 1 ]; then
